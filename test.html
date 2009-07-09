@@ -20,6 +20,15 @@ $(function () {
     });
     ul.appendTo(t);
   });
+
+  statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry\"]/a[not(@class=\"domain\")]'";
+  $.queryYQL(statement, "xml", function (data) {
+    var ul = $("<ul/>");
+    $.each(data.results, function () {
+      $("<li/>").append($(this.toString()).text()).appendTo(ul);
+    });
+    ul.appendTo(t);
+  });
 });
 </script>
 </head>

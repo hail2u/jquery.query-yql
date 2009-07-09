@@ -1,7 +1,7 @@
 TITLE
 =====
 
-jQuery Plugin: Query YQL - version 0.1
+jQuery Plugin: Query YQL - version 0.2
 
 DESCRIPTION
 ===========
@@ -11,8 +11,17 @@ Query YQL simply.
 Usage
 =====
 
+Query YQL:
+
     var statement = "select * from feed where url='http://example.com/rss'";
     $.queryYQL(statement, function (data) {
+      // do something with "data".
+    });
+
+Query YQL with JSONP-X:
+
+    var statement = "select * from html where url='http://example.com/' and xpath='//h1'";
+    $.queryYQL(statement, "xml", function (data) {
       // do something with "data".
     });
 

@@ -1,5 +1,5 @@
 /*!
- * jQuery Plugin: Query YQL - version 0.1
+ * jQuery Plugin: Query YQL - version 0.2
  * http://github.com/hail2u/jquery.query-yql
  * Query YQL simply.
  *
@@ -8,10 +8,15 @@
  * http://opensource.org/licenses/mit-license.php
  */
 (function ($) {
-  $.queryYQL = function (statement, callback) {
+  $.queryYQL = function (statement, type, callback) {
+    if ($.isFunction(type)) {
+      callback = type;
+      type = "json";
+    }
+
     var url = "http://query.yahooapis.com/v1/public/yql?callback=?";
     var data = {
-      format: "json",
+      format: type,
       q:      statement
     };
 
