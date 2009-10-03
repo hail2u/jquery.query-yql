@@ -49,6 +49,6 @@ Query YQL with Open Data Tables (custom URL):
 LICENSE
 =======
 
-Copyright (c) 2009 Kyo Nagashima <kyo@hail2u.net> 
-This library licensed under MIT license: 
+Copyright (c) 2009 Kyo Nagashima <kyo@hail2u.net>  
+This library licensed under MIT license:  
 http://opensource.org/licenses/mit-license.php
