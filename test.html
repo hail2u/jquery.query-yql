@@ -29,6 +29,16 @@ $(function () {
     });
     ul.appendTo(t);
   });
+
+  statement = "select * from twitter.user.timeline where id='hell2u'";
+  $.queryYQL(statement, "all", function (data) {
+    var r = data.query.results;
+    var ul = $("<ul/>");
+    $.each(r.entry, function () {
+      $("<li/>").append(this.title).appendTo(ul);
+    });
+    ul.appendTo(t);
+  });
 });
 </script>
 </head>
