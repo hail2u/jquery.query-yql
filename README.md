@@ -32,14 +32,14 @@ Query YQL with JSONP-X:
       // do something with "data".
     });
 
-Query YQL with Open Data Tables:
+Query YQL with Open Data Table:
 
     var statement = "select * from twitter.user.timeline where id='hell2u'";
     $.queryYQL(statement, "all", function (data) {
       // do something with "data".
     });
 
-Query YQL with Open Data Tables (custom URL):
+Query YQL with Open Data Table (custom URL):
 
     var statement = "select * from twitter.user.timeline where id='hell2u'";
     $.queryYQL(statement, "http://example.com/tables.env", function (data) {
