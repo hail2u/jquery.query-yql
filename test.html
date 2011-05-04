@@ -1,49 +1,47 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Test page for Query YQL</title>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-google.load("jquery", "1.3.2");
-</script>
-<script type="text/javascript" src="jquery.query-yql.js"></script>
-<script type="text/javascript">
-$(function () {
-  var t = $("#content").empty();
-  var statement = "select * from feed where url='http://feeds.feedburner.com/hail2u/blog'";
-  $.queryYQL(statement, function (data) {
-    var r = data.query.results;
-    var ul = $("<ul/>");
-    $.each(r.item, function () {
-      $("<li/>").append(this.title).appendTo(ul);
-    });
-    ul.appendTo(t);
-  });
+  <head>
+    <meta charset="utf-8">
+    <title>Test page for Query YQL</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="./jquery.query-yql.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        var t = $("#content").empty();
 
-  statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry\"]/a[not(@class=\"domain\")]'";
-  $.queryYQL(statement, "xml", function (data) {
-    var ul = $("<ul/>");
-    $.each(data.results, function () {
-      $("<li/>").append($(this.toString()).text()).appendTo(ul);
-    });
-    ul.appendTo(t);
-  });
+        var statement = "select * from feed where url='http://feeds.feedburner.com/hail2u/blog'";
+        $.queryYQL(statement, function (data) {
+          var r = data.query.results;
+          var ul = $("<ul/>");
+          $.each(r.item, function () {
+            $("<li/>").append(this.title).appendTo(ul);
+          });
+          ul.appendTo(t);
+        });
 
-  statement = "select * from twitter.user.timeline where id='hell2u'";
-  $.queryYQL(statement, "all", function (data) {
-    var r = data.query.results;
-    var ul = $("<ul/>");
-    $.each(r.entry, function () {
-      $("<li/>").append(this.title).appendTo(ul);
-    });
-    ul.appendTo(t);
-  });
-});
-</script>
-</head>
-<body>
-<h1>Test page for Query YQL</h1>
-<div id="content"></div>
-</body>
+        statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry\"]/a[not(@class=\"domain\")]'";
+        $.queryYQL(statement, "xml", function (data) {
+          var ul = $("<ul/>");
+          $.each(data.results, function () {
+            $("<li/>").append($(this.toString()).text()).appendTo(ul);
+          });
+          ul.appendTo(t);
+        });
+
+        statement = "select * from twitter.user.timeline where screen_name='@hell2u'";
+        $.queryYQL(statement, "all", function (data) {
+          var ul = $("<ul/>");
+          $.each(data.query.results.statuses.status, function () {
+            $("<li/>").append(this.text).appendTo(ul);
+          });
+          ul.appendTo(t);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Test page for Query YQL</h1>
+    
+    <div id="content"></div>
+  </body>
 </html>
