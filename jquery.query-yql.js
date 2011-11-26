@@ -1,11 +1,9 @@
 /*!
- * jQuery Plugin: Query YQL - version 0.3
+ * jQuery Plugin: Query YQL - version 0.3.1
  * http://github.com/hail2u/jquery.query-yql
  * Query YQL simply.
  *
- * Copyright (c) 2009 Kyo Nagashima <kyo@hail2u.net>
- * This library licensed under MIT license:
- * http://opensource.org/licenses/mit-license.php
+ * LICENSE: http://hail2u.mit-license.org/2009
  */
 (function ($) {
   $.queryYQL = function (statement, type, envUrl, callback) {
