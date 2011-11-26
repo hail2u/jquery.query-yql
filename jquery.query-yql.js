@@ -21,11 +21,13 @@
       envUrl   = undefined;
     }
 
+    var scheme = ('https:' == document.location.protocol ? 'https' : 'http');
+
     if (envUrl === "all") {
-      envUrl = "http://datatables.org/alltables.env";
+      envUrl = scheme + "://datatables.org/alltables.env";
     }
 
-    var url = "http://query.yahooapis.com/v1/public/yql?callback=?";
+    var url = scheme + "://query.yahooapis.com/v1/public/yql?callback=?";
     var data = {
       format: type,
       q:      statement
