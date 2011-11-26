@@ -1,7 +1,7 @@
 TITLE
 =====
 
-jQuery Plugin: Query YQL - version 0.3
+jQuery Plugin: Query YQL - version 0.3.1
 
 DESCRIPTION
 ===========
@@ -49,6 +49,4 @@ Query YQL with Open Data Table (custom URL):
 LICENSE
 =======
 
-Copyright (c) 2009 Kyo Nagashima <kyo@hail2u.net>  
-This library licensed under MIT license:  
-http://opensource.org/licenses/mit-license.php
+http://hail2u.mit-license.org/2009
