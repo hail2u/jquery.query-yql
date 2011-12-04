@@ -19,7 +19,7 @@
           ul.appendTo(t);
         });
 
-        statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry\"]/a[not(@class=\"domain\")]'";
+        statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry-title\"]/a[@class=\"entry-link\"]'";
         $.queryYQL(statement, "xml", function (data) {
           var ul = $("<ul/>");
           $.each(data.results, function () {
