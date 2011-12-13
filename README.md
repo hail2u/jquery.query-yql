@@ -1,12 +1,14 @@
 TITLE
 =====
 
-jQuery Plugin: Query YQL - version 0.3.1
+jQuery Plugin: Query YQL - version 0.4
+
 
 DESCRIPTION
 ===========
 
 Query YQL simply.
+
 
 Usage
 =====
@@ -46,7 +48,8 @@ Query YQL with Open Data Table (custom URL):
       // do something with "data".
     });
 
+
 LICENSE
 =======
 
-http://hail2u.mit-license.org/2009
+MIT: http://hail2u.mit-license.org/2009
