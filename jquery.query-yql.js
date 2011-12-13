@@ -1,11 +1,15 @@
-/*!
- * jQuery Plugin: Query YQL - version 0.3.1
- * http://github.com/hail2u/jquery.query-yql
- * Query YQL simply.
+/**
+ * @preserve jQuery Plugin: Query YQL - version 0.4
  *
  * LICENSE: http://hail2u.mit-license.org/2009
  */
+
+/*jslint indent: 2, browser: true */
+/*global jQuery, $ */
+
 (function ($) {
+  "use strict";
+
   $.queryYQL = function (statement, type, envUrl, callback) {
     if ($.isFunction(type)) {
       callback = type;
@@ -19,17 +23,16 @@
       envUrl   = undefined;
     }
 
-    var scheme = ('https:' == document.location.protocol ? 'https' : 'http');
+    var scheme = (document.location.protocol === "https:" ? "https" : "http"),
+      url = scheme + "://query.yahooapis.com/v1/public/yql?callback=?",
+      data = {
+        format: type,
+        q:      statement
+      };
 
     if (envUrl === "all") {
       envUrl = scheme + "://datatables.org/alltables.env";
     }
-
-    var url = scheme + "://query.yahooapis.com/v1/public/yql?callback=?";
-    var data = {
-      format: type,
-      q:      statement
-    };
 
     if (envUrl) {
       data.env = envUrl;
@@ -37,4 +40,4 @@
 
     return $.get(url, data, callback, "json");
   };
-})(jQuery);
+}(jQuery));
