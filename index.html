@@ -2,15 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
+
     <title>Test page for Query YQL</title>
+
+    <link rel="stylesheet" href="http://hail2u.github.com/natural.css">
+
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <h1>Test page for Query YQL</h1>
+    
+    <div id="content"></div>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="https://github.com/hail2u/jquery.query-yql/raw/master/jquery.query-yql.js"></script>
+    <script src="jquery.query-yql.min.js"></script>
     <script type="text/javascript">
       $(function () {
         var t = $("#content").empty();
 
         var statement = "select * from feed where url='http://feeds.feedburner.com/hail2u/blog'";
         $.queryYQL(statement, function (data) {
+          $("<h2/>").text("from hail2u.net").appendTo(t);
           var r = data.query.results;
           var ul = $("<ul/>");
           $.each(r.item, function () {
@@ -21,6 +33,7 @@
 
         statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry-title\"]/a[@class=\"entry-link\"]'";
         $.queryYQL(statement, "xml", function (data) {
+          $("<h2/>").text("from b.hatena.ne.jp/h2u/").appendTo(t);
           var ul = $("<ul/>");
           $.each(data.results, function () {
             $("<li/>").append($(this.toString()).text()).appendTo(ul);
@@ -30,6 +43,7 @@
 
         statement = "select * from twitter.user.timeline where screen_name='@hell2u'";
         $.queryYQL(statement, "all", function (data) {
+          $("<h2/>").text("from twitter.com/hell2u/").appendTo(t);
           var ul = $("<ul/>");
           $.each(data.query.results.statuses.status, function () {
             $("<li/>").append(this.text).appendTo(ul);
@@ -38,10 +52,5 @@
         });
       });
     </script>
-  </head>
-  <body>
-    <h1>Test page for Query YQL</h1>
-    
-    <div id="content"></div>
   </body>
 </html>
