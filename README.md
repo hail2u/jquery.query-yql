@@ -36,14 +36,14 @@ Query YQL with JSONP-X:
 
 Query YQL with Open Data Table:
 
-    var statement = "select * from twitter.user.timeline where id='hell2u'";
+    var statement = "select * from google.translate where q='This is a test.' and target='ja'";
     $.queryYQL(statement, "all", function (data) {
       // do something with "data".
     });
 
 Query YQL with Open Data Table (custom URL):
 
-    var statement = "select * from twitter.user.timeline where id='hell2u'";
+    var statement = "select * from example.table where q='foobar'";
     $.queryYQL(statement, "http://example.com/tables.env", function (data) {
       // do something with "data".
     });

@@ -18,37 +18,35 @@
     <script src="jquery.query-yql.min.js"></script>
     <script type="text/javascript">
       $(function () {
-        var t = $("#content").empty();
+        var t = $('#content').empty();
 
-        var statement = "select * from feed where url='http://feeds.feedburner.com/hail2u/blog'";
+        var statement = 'select * from feed where url="http://hail2u.net/blog/feed"';
         $.queryYQL(statement, function (data) {
-          $("<h2/>").text("from hail2u.net").appendTo(t);
+          $('<h2/>').text('Test: select * from feed').appendTo(t);
           var r = data.query.results;
-          var ul = $("<ul/>");
+          var ul = $('<ul/>');
           $.each(r.item, function () {
-            $("<li/>").append(this.title).appendTo(ul);
+            $('<li/>').append(this.title).appendTo(ul);
           });
           ul.appendTo(t);
         });
 
-        statement = "select * from html where url='http://b.hatena.ne.jp/h2u/' and xpath='//h3[@class=\"entry-title\"]/a[@class=\"entry-link\"]'";
-        $.queryYQL(statement, "xml", function (data) {
-          $("<h2/>").text("from b.hatena.ne.jp/h2u/").appendTo(t);
-          var ul = $("<ul/>");
+        statement = 'select * from html where url="http://b.hatena.ne.jp/h2u/" and xpath="//h3[@class=\'entry-title\']/a[@class=\'entry-link\']"';
+        $.queryYQL(statement, 'xml', function (data) {
+          $('<h2/>').text('Test: select * from html').appendTo(t);
+          var ul = $('<ul/>');
           $.each(data.results, function () {
-            $("<li/>").append($(this.toString()).text()).appendTo(ul);
+            $('<li/>').append($(this.toString()).text()).appendTo(ul);
           });
           ul.appendTo(t);
         });
 
-        statement = "select * from twitter.user.timeline where screen_name='@hell2u'";
-        $.queryYQL(statement, "all", function (data) {
-          $("<h2/>").text("from twitter.com/hell2u/").appendTo(t);
-          var ul = $("<ul/>");
-          $.each(data.query.results.statuses.status, function () {
-            $("<li/>").append(this.text).appendTo(ul);
-          });
-          ul.appendTo(t);
+        statement = 'select * from google.translate where q="This is a test." and target="ja"';
+        $.queryYQL(statement, 'all', function (data) {
+          $('<h2/>').text('Test: select * from google.translate').appendTo(t);
+          var p = $('<p/>');
+          var res = data.query.results.json.json[0].json.json;
+          p.append(res[1]).append(' -&gt; ').append(res[0]).appendTo(t);
         });
       });
     </script>
