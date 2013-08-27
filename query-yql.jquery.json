@@ -1,0 +1,22 @@
+{
+  "name": "query-yql",
+  "version": "0.4.1",
+  "title": "Query YQL",
+  "author": {
+    "name": "Kyo Nagashima",
+    "url": "http://hail2u.net/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://hail2u.mit-license.org/2009"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.5"
+  },
+  "description": "Query YQL simply.",
+  "homepage": "https://github.com/hail2u/jquery.query-yql",
+  "demo": "http://hail2u.github.io/jquery.query-yql/",
+  "bugs": "https://github.com/hail2u/jquery.query-yql/issues"
+}
