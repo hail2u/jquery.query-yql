@@ -1,5 +1,5 @@
 /**
- * @preserve jQuery Plugin: Query YQL - version 0.4
+ * @preserve jQuery Plugin: Query YQL - version 0.4.1
  *
  * LICENSE: http://hail2u.mit-license.org/2009
  */
