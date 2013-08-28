@@ -1,5 +1,5 @@
-jQuery Plugin: Query YQL
-========================
+jQuery Plugin: Query YQL v0.4.1
+===============================
 
 Query YQL simply.
 
