@@ -31,7 +31,7 @@
       };
 
     if (envUrl === "all") {
-      envUrl = scheme + "://datatables.org/alltables.env";
+      envUrl = scheme + "://www.datatables.org/alltables.env";
     }
 
     if (envUrl) {
